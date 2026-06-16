@@ -1,0 +1,165 @@
+(footprint "SW_STU-057A23AC_8127_2.25N"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "Approximate 4-pad SMD switch footprint from land-pattern image for STU-057A23AC_8127_2.25N. Top two pads share pad 1; bottom two pads share pad 2. Units: mm.")
+	(tags "switch smd STU-057A23AC 8127 2.25N")
+	(property "Reference" "SW?"
+		(at 0 -1.75 0)
+		(layer "F.SilkS")
+		(uuid "e7569c85-3938-4ace-855d-ee43dc89a020")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.12)
+			)
+		)
+	)
+	(property "Value" "STU-057A23AC_8127_2.25N"
+		(at -3.5 3.5 0)
+		(layer "F.Fab")
+		(uuid "467d80a8-9adc-4f34-8aa3-e5cd39a28e35")
+		(effects
+			(font
+				(size 0.7 0.7)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "df8a624a-8994-49a4-9eda-9e89831f2764")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "dfb4e716-3091-4ec2-95a1-509f8fde5202")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_circle
+		(center -1.7 -1.08)
+		(end -1.62 -1.08)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "f83fbd53-5d37-406b-96b7-d97caed50317")
+	)
+	(fp_line
+		(start -0.9 -0.95)
+		(end 0.9 0.95)
+		(stroke
+			(width 0.04)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "2c926313-455d-4c73-a5e5-4f331d531e8f")
+	)
+	(fp_line
+		(start -0.9 0.95)
+		(end 0.9 -0.95)
+		(stroke
+			(width 0.04)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "8dbdfdf8-f144-4896-bf16-c4b1d688af2d")
+	)
+	(fp_rect
+		(start -0.9 -0.95)
+		(end 0.9 0.95)
+		(stroke
+			(width 0.05)
+			(type dash)
+		)
+		(fill no)
+		(layer "Dwgs.User")
+		(uuid "89c71a31-f46b-42af-9e10-bb01a949f8d3")
+	)
+	(fp_rect
+		(start -1.95 -1.2)
+		(end 1.95 1.2)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "5d1faafb-ccaa-406f-a4cb-a63174aab28d")
+	)
+	(fp_rect
+		(start -1.7 -0.86)
+		(end 1.7 0.86)
+		(stroke
+			(width 0.05)
+			(type dash)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "8ed63a36-94fb-49cd-ad23-b06d50f77462")
+	)
+	(fp_text user "NO PATTERN / NO SILK"
+		(at 0 1.5 0)
+		(layer "Dwgs.User")
+		(uuid "abc32a3f-c69f-4401-a8c6-2b7be5b42e98")
+		(effects
+			(font
+				(size 0.35 0.35)
+				(thickness 0.05)
+			)
+		)
+	)
+	(fp_text user "${REFERENCE}"
+		(at -2 -3.5 0)
+		(layer "F.Fab")
+		(uuid "f7e128a3-a6b4-43ca-bb8a-a7f4ff50504a")
+		(effects
+			(font
+				(size 0.55 0.55)
+				(thickness 0.08)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at -1.385 -0.58)
+		(size 0.63 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "b827a110-1c8b-49e6-9842-f085d7692350")
+	)
+	(pad "1" smd rect
+		(at 1.385 -0.58)
+		(size 0.63 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "3c95aa66-62c9-42ee-8014-9bbea7056484")
+	)
+	(pad "2" smd rect
+		(at -1.385 0.58)
+		(size 0.63 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "7fe8786f-41ca-4333-80a0-3c689f8a72a8")
+	)
+	(pad "2" smd rect
+		(at 1.385 0.58)
+		(size 0.63 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "0842c0f7-72ae-499f-9e57-daf0e6a5fbaa")
+	)
+	(embedded_fonts no)
+)
