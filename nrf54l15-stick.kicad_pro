@@ -40,14 +40,14 @@
         "other_text_upright": false,
         "pads": {
           "drill": 0.0,
-          "height": 2.0,
-          "width": 1.2
+          "height": 0.99,
+          "width": 0.99
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
-        "silk_text_size_h": 0.7,
-        "silk_text_size_v": 0.7,
-        "silk_text_thickness": 0.15,
+        "silk_text_size_h": 0.5,
+        "silk_text_size_v": 0.5,
+        "silk_text_thickness": 0.12,
         "silk_text_upright": true,
         "zones": {
           "border_display_style": 2,
@@ -76,7 +76,32 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        [
+          "copper_edge_clearance|100250000|99450000|3ad0b8a0-84c6-406e-a29d-71c836eb7347|40ed4584-e6e4-4d3a-9bf6-8ea328b75f19",
+          ""
+        ],
+        [
+          "copper_edge_clearance|113350000|99450000|b7f143a0-c944-4fc7-b70a-a20c87dd814d|ba7ad0ba-510a-463f-ac1f-b2a5326aff5e",
+          ""
+        ],
+        [
+          "hole_clearance|103200000|93000000|6fbdd0d8-26b2-433c-8fcc-bc7415fab87a|2a23ba9b-bfe1-4ead-957e-821b02d3c3dc",
+          ""
+        ],
+        [
+          "hole_clearance|109200000|90800000|7dd6cb62-e3df-40c7-9a39-4d9768ccee16|40a0b045-7b3c-4c04-b3ee-39b06e9678fb",
+          ""
+        ],
+        [
+          "hole_clearance|110300000|92000000|6d219f04-71a6-4ba2-9daf-57f8ec200e6d|40a0b045-7b3c-4c04-b3ee-39b06e9678fb",
+          ""
+        ],
+        [
+          "hole_clearance|111657337|91648556|961e09b3-29b0-4014-8373-e5886734b0b6|2a39e84d-ad32-4ac6-bb45-65e9c9416452",
+          ""
+        ]
+      ],
       "meta": {
         "version": 2
       },
@@ -156,9 +181,9 @@
         "min_microvia_diameter": 0.2,
         "min_microvia_drill": 0.1,
         "min_resolved_spokes": 1,
-        "min_silk_clearance": 0.15,
-        "min_text_height": 1.0,
-        "min_text_thickness": 0.15,
+        "min_silk_clearance": 0.12,
+        "min_text_height": 0.5,
+        "min_text_thickness": 0.12,
         "min_through_hole_diameter": 0.2,
         "min_track_width": 0.1,
         "min_via_annular_width": 0.1,
@@ -247,6 +272,10 @@
         {
           "diameter": 0.0,
           "drill": 0.0
+        },
+        {
+          "diameter": 0.45,
+          "drill": 0.2
         }
       ],
       "zones_allow_external_fillets": false
@@ -268,7 +297,6 @@
         "layers": [
           2,
           7,
-          15,
           25,
           29
         ],
@@ -307,6 +335,43 @@
           31
         ],
         "name": "f",
+        "renderLayers": [
+          "vias",
+          "footprint_text",
+          "footprint_anchors",
+          "ratsnest",
+          "grid",
+          "footprints_front",
+          "footprints_back",
+          "footprint_values",
+          "footprint_references",
+          "tracks",
+          "drc_errors",
+          "drawing_sheet",
+          "bitmaps",
+          "pads",
+          "zones",
+          "drc_warnings",
+          "drc_exclusions",
+          "locked_item_shadows",
+          "conflict_shadows",
+          "shapes",
+          "ly_points"
+        ]
+      },
+      {
+        "activeLayer": -2,
+        "flipBoard": false,
+        "layers": [
+          0,
+          2,
+          5,
+          7,
+          25,
+          29,
+          31
+        ],
+        "name": "fb",
         "renderLayers": [
           "vias",
           "footprint_text",
@@ -606,7 +671,6 @@
         "bus_width": 12,
         "clearance": 0.1,
         "diff_pair_gap": 0.25,
-        "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.25,
         "line_style": 0,
         "microvia_diameter": 0.3,
@@ -615,10 +679,10 @@
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 0,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.4,
+        "track_width": 0.2,
         "tuning_profile": "",
-        "via_diameter": 0.55,
-        "via_drill": 0.3,
+        "via_diameter": 0.5,
+        "via_drill": 0.25,
         "wire_width": 6
       }
     ],
