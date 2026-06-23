@@ -60,13 +60,13 @@
           "hatch_smoothing_level": 0,
           "hatch_smoothing_value": 0.1,
           "hatch_thickness": 1.0,
-          "min_clearance": 0.5,
+          "min_clearance": 0.15,
           "min_island_area": 10.0,
-          "min_thickness": 0.25,
-          "pad_connection": 1,
+          "min_thickness": 0.1,
+          "pad_connection": 2,
           "remove_islands": 0,
-          "thermal_relief_gap": 0.5,
-          "thermal_relief_spoke_width": 0.5
+          "thermal_relief_gap": 0.2,
+          "thermal_relief_spoke_width": 0.2
         }
       },
       "diff_pair_dimensions": [
@@ -76,32 +76,7 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [
-        [
-          "copper_edge_clearance|100250000|99450000|3ad0b8a0-84c6-406e-a29d-71c836eb7347|40ed4584-e6e4-4d3a-9bf6-8ea328b75f19",
-          ""
-        ],
-        [
-          "copper_edge_clearance|113350000|99450000|b7f143a0-c944-4fc7-b70a-a20c87dd814d|ba7ad0ba-510a-463f-ac1f-b2a5326aff5e",
-          ""
-        ],
-        [
-          "hole_clearance|103200000|93000000|6fbdd0d8-26b2-433c-8fcc-bc7415fab87a|2a23ba9b-bfe1-4ead-957e-821b02d3c3dc",
-          ""
-        ],
-        [
-          "hole_clearance|109200000|90800000|7dd6cb62-e3df-40c7-9a39-4d9768ccee16|40a0b045-7b3c-4c04-b3ee-39b06e9678fb",
-          ""
-        ],
-        [
-          "hole_clearance|110300000|92000000|6d219f04-71a6-4ba2-9daf-57f8ec200e6d|40a0b045-7b3c-4c04-b3ee-39b06e9678fb",
-          ""
-        ],
-        [
-          "hole_clearance|111657337|91648556|961e09b3-29b0-4014-8373-e5886734b0b6|2a39e84d-ad32-4ac6-bb45-65e9c9416452",
-          ""
-        ]
-      ],
+      "drc_exclusions": [],
       "meta": {
         "version": 2
       },
@@ -184,10 +159,10 @@
         "min_silk_clearance": 0.12,
         "min_text_height": 0.5,
         "min_text_thickness": 0.12,
-        "min_through_hole_diameter": 0.2,
+        "min_through_hole_diameter": 0.15,
         "min_track_width": 0.1,
         "min_via_annular_width": 0.1,
-        "min_via_diameter": 0.45,
+        "min_via_diameter": 0.25,
         "solder_mask_to_copper_clearance": 0.0,
         "use_height_for_length_calcs": true
       },
@@ -237,6 +212,7 @@
       ],
       "track_widths": [
         0.0,
+        0.11,
         0.12,
         0.2,
         0.23,
@@ -274,6 +250,10 @@
           "drill": 0.0
         },
         {
+          "diameter": 0.25,
+          "drill": 0.15
+        },
+        {
           "diameter": 0.45,
           "drill": 0.2
         }
@@ -287,7 +267,7 @@
       "internal_id": "",
       "mfg": "",
       "mpn": "",
-      "sch_revision": "AE"
+      "sch_revision": "AA"
     },
     "layer_pairs": [],
     "layer_presets": [
@@ -413,7 +393,16 @@
     "equivalence_files": []
   },
   "erc": {
-    "erc_exclusions": [],
+    "erc_exclusions": [
+      [
+        "lib_symbol_mismatch|1536700|939800|79c3fd30-3104-48b5-baba-964dc9758ef5|00000000-0000-0000-0000-000000000000|||",
+        ""
+      ],
+      [
+        "lib_symbol_mismatch|2641600|952500|8219c1cf-ae6e-4f49-a0e8-09a6017661ee|00000000-0000-0000-0000-000000000000|||",
+        ""
+      ]
+    ],
     "meta": {
       "version": 0
     },
@@ -602,7 +591,7 @@
       "field_name_whitespace": "warning",
       "footprint_filter": "ignore",
       "footprint_link_issues": "warning",
-      "four_way_junction": "ignore",
+      "four_way_junction": "error",
       "global_label_dangling": "warning",
       "ground_pin_not_ground": "warning",
       "hier_label_mismatch": "error",
@@ -628,7 +617,7 @@
       "similar_labels": "warning",
       "similar_power": "warning",
       "simulation_model_issue": "ignore",
-      "single_global_label": "ignore",
+      "single_global_label": "error",
       "stacked_pin_name": "warning",
       "unannotated": "error",
       "unconnected_wire_endpoint": "warning",
@@ -663,8 +652,8 @@
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.15,
         "tuning_profile": "",
-        "via_diameter": 0.45,
-        "via_drill": 0.2,
+        "via_diameter": 0.25,
+        "via_drill": 0.15,
         "wire_width": 6
       },
       {
@@ -681,8 +670,8 @@
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.2,
         "tuning_profile": "",
-        "via_diameter": 0.5,
-        "via_drill": 0.25,
+        "via_diameter": 0.3,
+        "via_drill": 0.2,
         "wire_width": 6
       }
     ],
