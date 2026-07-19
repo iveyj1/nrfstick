@@ -1,0 +1,5 @@
+#!/usr/bin/env bash 
+set -euo pipefail
+
+source $HOME/cadquery/.venv_cadquery/bin/activate
+python3 $1
