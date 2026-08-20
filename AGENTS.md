@@ -27,13 +27,13 @@
 
 ## Board support design assumptions
 - PCB thickness: `1.6 mm`.
-- Four 4 mm diameter posts are centered on PCB outline corners.
-- PCB corner overlap into each post: `2 mm`.
-- PCB drops in from the top and sits in corner cutouts.
-- Top of PCB is flush with top of posts.
-- Total post/top height from base bottom is currently `24 mm`.
+- Four 6 mm diameter corner posts are offset outward from the PCB corners so the board overlap into each post remains `2 mm`.
+- PCB drops in from the top and sits in corner cutouts that conform to the PCB edges where they overlap the posts.
+- Top of PCB is flush with top of the four corner posts.
+- Total corner post/top height from base bottom is currently `24 mm`.
+- A fifth 6 mm USB connector support post is on the PCB X centerline, `8 mm` below the PCB -Y edge, with top at `POST_TOP_Z - 2.6 mm`.
 - Base height is `5 mm`.
-- Base is larger than the board by `BASE_EXTRA_XY` in X/Y, with margin `BASE_EXTRA_XY / 2` on each side.
+- Base is rectangular and its X/Y bounds are driven by the footprint radius of all five posts plus their chamfer/collar dimensions.
 
 ## KiCad parsing notes
 - Edge.Cuts are currently simple `gr_line` records forming a rectangle.

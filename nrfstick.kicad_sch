@@ -4266,10 +4266,6 @@
 		(uuid "5ac0f42c-a7e5-4894-8c41-aa4225c85f4e")
 	)
 	(no_connect
-		(at 273.05 83.82)
-		(uuid "6628aeb5-24fc-463b-be6a-e00ff68eac23")
-	)
-	(no_connect
 		(at 252.73 186.69)
 		(uuid "6cdb0a52-c09f-46dd-bf03-2057ce60f16d")
 	)
@@ -4318,20 +4314,8 @@
 		(uuid "ce7d1858-37d8-4a9e-b143-895824dc1801")
 	)
 	(no_connect
-		(at 273.05 81.28)
-		(uuid "d93d8cbe-11fe-40fb-9f5a-db024720293c")
-	)
-	(no_connect
 		(at 252.73 171.45)
 		(uuid "eab64edf-3a11-4661-a985-6e95d04c3895")
-	)
-	(no_connect
-		(at 196.85 193.04)
-		(uuid "eace54bd-1052-40fb-9ea0-d8d63fbfb3c7")
-	)
-	(no_connect
-		(at 196.85 190.5)
-		(uuid "f975d3f8-f190-430c-b51c-8967080109c5")
 	)
 	(no_connect
 		(at 252.73 173.99)
@@ -4400,6 +4384,16 @@
 			(type default)
 		)
 		(uuid "16bdcf45-3dcf-4176-ae7a-3296539cd55b")
+	)
+	(wire
+		(pts
+			(xy 195.58 185.42) (xy 196.85 185.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "17810eb6-1c6d-46f3-bfd2-91a557128942")
 	)
 	(wire
 		(pts
@@ -4530,16 +4524,6 @@
 			(type default)
 		)
 		(uuid "3143a4b0-3ae7-49f9-b4c4-3fa43651c74b")
-	)
-	(wire
-		(pts
-			(xy 273.05 76.2) (xy 276.86 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "34b6b5a0-365a-4342-b24f-7f02626ed75d")
 	)
 	(wire
 		(pts
@@ -4843,7 +4827,7 @@
 	)
 	(wire
 		(pts
-			(xy 181.61 187.96) (xy 196.85 187.96)
+			(xy 195.58 187.96) (xy 196.85 187.96)
 		)
 		(stroke
 			(width 0)
@@ -5143,6 +5127,16 @@
 	)
 	(wire
 		(pts
+			(xy 195.58 190.5) (xy 196.85 190.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9ff99d39-7700-405e-b4b5-b860bb827778")
+	)
+	(wire
+		(pts
 			(xy 181.61 198.12) (xy 196.85 198.12)
 		)
 		(stroke
@@ -5160,16 +5154,6 @@
 			(type default)
 		)
 		(uuid "a546a1ca-a2bc-453c-aece-7ead7697b148")
-	)
-	(wire
-		(pts
-			(xy 181.61 185.42) (xy 196.85 185.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a7ea9148-c6af-4a99-b678-43b1dd7d3e2d")
 	)
 	(wire
 		(pts
@@ -5270,16 +5254,6 @@
 			(type default)
 		)
 		(uuid "b911b0dc-2ca7-4130-9a8a-0ee50eb0f750")
-	)
-	(wire
-		(pts
-			(xy 273.05 78.74) (xy 276.86 78.74)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bb9953d7-6d12-4667-a316-55df2ec74a99")
 	)
 	(wire
 		(pts
@@ -5413,6 +5387,16 @@
 	)
 	(wire
 		(pts
+			(xy 195.58 193.04) (xy 196.85 193.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d30ea939-39ab-4271-9919-73155d45ba29")
+	)
+	(wire
+		(pts
 			(xy 223.52 228.6) (xy 223.52 227.33)
 		)
 		(stroke
@@ -5542,12 +5526,12 @@
 		(uuid "1baed35f-f124-493e-9a8b-2589aa22c0a9")
 	)
 	(label "UART_nRF_TX"
-		(at 181.61 185.42 0)
+		(at 195.58 185.42 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
 		(uuid "209002bf-72f8-48b2-b15b-14df4ecd061e")
 	)
@@ -5560,6 +5544,26 @@
 			(justify left bottom)
 		)
 		(uuid "52ae21ee-3a21-4f21-9d0e-5112509036ff")
+	)
+	(label "UART_nRF_RTS"
+		(at 195.58 193.04 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "5bbf496e-14eb-4776-9472-a4aa111decb9")
+	)
+	(label "UART_nRF_CTS"
+		(at 273.05 81.28 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "5ca0a6c6-5256-4bff-976c-8da35b7f0003")
 	)
 	(label "LED_BLUE"
 		(at 137.16 207.01 0)
@@ -5592,12 +5596,12 @@
 		(uuid "84adda3d-0e73-4704-9eef-a72927091966")
 	)
 	(label "UART_nRF_RX"
-		(at 181.61 187.96 0)
+		(at 195.58 187.96 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
 		(uuid "854cf365-db4b-47c3-8fe1-d20504298cec")
 	)
@@ -5611,8 +5615,28 @@
 		)
 		(uuid "af3a1624-ea0b-41dc-9eca-748ecc4a613d")
 	)
+	(label "UART_nRF_RTS"
+		(at 273.05 83.82 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b78794a3-4cc0-4ae1-9e9f-fcbec8107380")
+	)
+	(label "UART_nRF_CTS"
+		(at 195.58 190.5 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "be059915-9b0f-4394-81d1-06e7918cc90d")
+	)
 	(label "UART_nRF_RX"
-		(at 276.86 76.2 0)
+		(at 273.05 76.2 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5622,7 +5646,7 @@
 		(uuid "c15c5f7e-d7d3-4adb-a694-d726cdac5ff8")
 	)
 	(label "UART_nRF_TX"
-		(at 276.86 78.74 0)
+		(at 273.05 78.74 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -10271,7 +10295,7 @@
 		(in_bom no)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp yes)
+		(dnp no)
 		(uuid "eb07c150-4686-4a10-948b-71a4a51fee51")
 		(property "Reference" "J2"
 			(at 263.652 137.922 0)

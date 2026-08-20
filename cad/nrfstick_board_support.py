@@ -3,9 +3,11 @@
 CadQuery board support for nrfstick.kicad_pcb.
 
 The script parses the rectangular Edge.Cuts outline from the KiCad PCB file and
-builds a 5 mm tall base with four 6 mm diameter corner posts.  Each post rises
-24 mm from the bottom of the base and has a 2 mm x 2 mm x 1.6 mm top cutout for
-one PCB corner, leaving the top of the PCB flush with the top of the posts.
+builds a 5 mm tall rectangular base with four 6 mm diameter corner posts plus
+one shorter USB 
+tor support post.  The corner posts rise 24 mm from the
+bottom of the base and have 2 mm x 2 mm x 1.6 mm top cutouts for the PCB
+corners, leaving the top of the PCB flush with the top of the corner posts.
 """
 
 from __future__ import annotations
@@ -33,21 +35,16 @@ BOARD_CORNER_OVERLAP = 2.0     # how far each board corner enters its post
 CUTOUT_CLEARANCE = 0.15        # XY clearance so the PCB drops in easily
 CUTOUT_Z_OVERCUT = 0.5         # ensures cutout opens cleanly through post top
 
-BASE_EXTRA_XY = 12            # base is 4 mm larger than PCB in X and Y
-BASE_MARGIN = BASE_EXTRA_XY / 2.0
+USB_POST_Y_OFFSET = 8.0        # USB support post is this far below the PCB -Y edge
+USB_POST_TOP_BELOW_PCB_TOP = 2.6
+USB_POST_TOP_Z = POST_TOP_Z - USB_POST_TOP_BELOW_PCB_TOP
+
 BASE_VERTICAL_EDGE_FILLET = 0.75
+BASE_POST_CLEARANCE = 0.25     # extra rectangular base around post/chamfer footprint
 POST_RADIUS = POST_DIAMETER / 2.0
 POST_CENTER_OUTSET = POST_RADIUS - BOARD_CORNER_OVERLAP
-POST_BASE_FILLET_REQUESTED = 1.5
-# Clamp the collar/chamfer so it stays inside the base margin even if post
-# diameter, overlap, or base size changes.
-POST_BASE_FILLET = max(
-    0.0,
-    min(
-        POST_BASE_FILLET_REQUESTED,
-        BASE_MARGIN - POST_CENTER_OUTSET - POST_RADIUS - 0.1,
-    ),
-)
+POST_BASE_FILLET = 1.5
+POST_FOOTPRINT_RADIUS = POST_RADIUS + POST_BASE_FILLET
 TEXT_HEIGHT = .4
 TEXT_SIZE = 3.5
 TEXT_LINE_SPACING = 3
@@ -113,16 +110,43 @@ def parse_title_block_text(pcb_file: Path = PCB_FILE) -> list[str]:
 # Geometry
 # ----------------------------
 
+def corner_post_centers(board_width: float, board_length: float) -> list[tuple[float, float]]:
+    return [
+        (-POST_CENTER_OUTSET, -POST_CENTER_OUTSET),
+        (board_width + POST_CENTER_OUTSET, -POST_CENTER_OUTSET),
+        (-POST_CENTER_OUTSET, board_length + POST_CENTER_OUTSET),
+        (board_width + POST_CENTER_OUTSET, board_length + POST_CENTER_OUTSET),
+    ]
+
+
+def usb_post_center(board_width: float) -> tuple[float, float]:
+    return (board_width / 2.0, -USB_POST_Y_OFFSET)
+
+
+def support_post_centers(board_width: float, board_length: float) -> list[tuple[float, float]]:
+    return corner_post_centers(board_width, board_length) + [usb_post_center(board_width)]
+
+
+def base_bounds(board_width: float, board_length: float) -> tuple[float, float, float, float]:
+    """Rectangular base bounds driven by the footprint of all posts/collars."""
+    centers = support_post_centers(board_width, board_length)
+    r = POST_FOOTPRINT_RADIUS + BASE_POST_CLEARANCE
+    xs = [x for x, _ in centers]
+    ys = [y for _, y in centers]
+    return min(xs) - r, min(ys) - r, max(xs) + r, max(ys) + r
+
+
 def base(board_width: float, board_length: float) -> cq.Workplane:
+    min_x, min_y, max_x, max_y = base_bounds(board_width, board_length)
     return (
         cq.Workplane("XY")
         .box(
-            board_width + 2 * BASE_MARGIN,
-            board_length + 2 * BASE_MARGIN,
+            max_x - min_x,
+            max_y - min_y,
             BASE_HEIGHT,
             centered=(False, False, False),
         )
-        .translate((-BASE_MARGIN, -BASE_MARGIN, 0))
+        .translate((min_x, min_y, 0))
         .edges("|Z")
         .fillet(BASE_VERTICAL_EDGE_FILLET)
     )
@@ -148,12 +172,12 @@ def title_block_text(lines: list[str], board_width: float, board_length: float) 
     return text_body
 
 
-def post() -> cq.Workplane:
+def post(height: float = POST_TOP_Z) -> cq.Workplane:
     """6 mm post with a simple tapered collar where it leaves the base."""
     post_body = (
         cq.Workplane("XY")
         .circle(POST_RADIUS)
-        .extrude(POST_TOP_Z)
+        .extrude(height)
     )
 
     if POST_BASE_FILLET <= 0:
@@ -203,7 +227,12 @@ def corner_cutout(x_dir: int, y_dir: int) -> cq.Workplane:
 def corner_post(board_corner_x: float, board_corner_y: float, x_dir: int, y_dir: int) -> cq.Workplane:
     post_x = board_corner_x - x_dir * POST_CENTER_OUTSET
     post_y = board_corner_y - y_dir * POST_CENTER_OUTSET
-    return post().cut(corner_cutout(x_dir, y_dir)).translate((post_x, post_y, 0))
+    return post(POST_TOP_Z).cut(corner_cutout(x_dir, y_dir)).translate((post_x, post_y, 0))
+
+
+def usb_support_post(board_width: float) -> cq.Workplane:
+    x, y = usb_post_center(board_width)
+    return post(USB_POST_TOP_Z).translate((x, y, 0))
 
 
 def board_support(
@@ -229,6 +258,8 @@ def board_support(
 
     for x, y, x_dir, y_dir in placements:
         body = body.union(corner_post(x, y, x_dir, y_dir))
+
+    body = body.union(usb_support_post(board_width))
 
     return body
 
