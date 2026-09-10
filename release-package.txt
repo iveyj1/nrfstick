@@ -1,0 +1,78 @@
+Schematic and PCB Release Checklist
+=====================================
+-> Git
++ Pull and checkout appropriate branch in git
++ Delete old pdfs, BOMs and gerber files
+
+-> Schematic/BOM
++ Update assembly revision
++ Verify circuit
++ Run ERC
++ Generate bill of material bom_csv_grouped_by_value
++ Move BOM to gerber directory, filename in form: "62-01852-AF_bom_meshbridge.csv"
++ If needed make .xls file with quantity per board, quantity of boards, and total quantity fields for Gold Phoenix
++ Verify BOM and packages
++ Save pdf to directory <project dir>/gerber, filename of form: "62-01852-AF_sch_meshbridge.pdf"
+
+-> PCB
++ Import netlist from schematic
++ Use 62-01833_rev_06 module footprint that has courtyards/keepouts for programming pads on module. Can be found in footprint.pretty of the fixture controller project.
++ Keep traces away from screw mounting holes
++ Ensure correct light pipe/user LEDs are in designated area
++ Review supply traces for high-frequency current flow and bypass cap position
++ Review sensitive traces for adjacent noise sources
++ Add thermal and current-sharing vias if needed
++ Check extended paste areas for flow (if any)
++ Run DRC and fix issues
++ Update part number/revision on board
++ Place toggled logo
++ Place designer's icon
++ Update manufacturing notes
++ Fix part designator positions/sizes
++ Add programming pads - MUST be on both sides
++ Add text to programming pads
++ Add UART pads MUST be on both sides
++ Add text to UART pins
++ Through hole in/out labels
++ Add polarity indicators if needed
++ Update title block date, revision, etc.
+
+PCB Quality Checklist:
++ check board outline
++ Use 62-01833_rev_06 module footprint that has courtyards/keepouts for programming pads on module. Can be found in footprint.pretty of the fixture controller project.
++ Keep traces away from screw mounting holes
++ Ensure correct light pipe/user LEDs are in designated area
++ Review supply traces for high-frequency current flow and bypass cap position
++ Review sensitive traces for adjacent noise sources
++ Add thermal and current-sharing vias if needed
++ Import again from schematic
++ Review PCB in 3D viewer
++ Check extended paste areas for flow (if any)
+
+-> Gerber
++ Plot layers
++ Generate drill files
++ Preview gerbers including paste file
+    - Flip between gerber layers
+    - If 4+ layer board, review in-layers pour
++ Generate footprint postition files - units mm
++ Review position file
+
+-> Print
++ Print schematic PDF in color, landscape, tabloid size with a filename of form "61-01833-AK_sch_meshbridge.pdf"
++ Print PCB PDF in color, landscape, tabloid size with a filename of form "61-01833-AK_brd_meshbridge.pdf"
+
+-> Zip
++ GOLD PHOENIX - Include all files in main zip, delete schematic, BOM, and comments from PCB house zip
+    - Label in form 62-01852-AF_meshbridge_Gold_Phoenix.zip
++ LIGHT ENGINE - Include all files in main zip
+    - Label in form YYYY_MM_DD_Toggled_Product.zip
+
+-> Git
++ Add tags after pushing changes
+    - Label SCH tag in form "SCH_62-02078-AB"
+    - Label PCB tag in form "PCB_61-02077-AB"
+
+-> Review
++ Review with hardware team
++ Present notable changes to firmware team

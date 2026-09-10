@@ -78,43 +78,11 @@
       ],
       "drc_exclusions": [
         [
-          "copper_edge_clearance|100250000|95750000|ee59571b-f802-4771-bc6b-e5e89db805fd|b4dce685-53f8-4a27-a75f-5352eb6f22a8",
-          ""
-        ],
-        [
-          "copper_edge_clearance|113350000|95750000|6069daea-abf1-451c-a41e-fe135d93ed13|e2dc58ab-8273-4aee-92ac-0c5df2340a50",
-          ""
-        ],
-        [
           "lib_footprint_issues|106800000|96662500|2df1415d-5608-4b2c-b04d-595d2021cdfd|00000000-0000-0000-0000-000000000000",
           ""
         ],
         [
           "silk_edge_clearance|100000000|99950000|ee59571b-f802-4771-bc6b-e5e89db805fd|c454a2c5-3534-48ed-972a-f9e25f057d5f",
-          ""
-        ],
-        [
-          "silk_edge_clearance|101700000|82600000|53ebb54b-8220-4bd0-bf54-31eabaa906da|c71fb8b2-a8e3-4486-b8bf-4b97f76f0a98",
-          ""
-        ],
-        [
-          "silk_edge_clearance|106800000|82600000|53ebb54b-8220-4bd0-bf54-31eabaa906da|7adac7dc-5b4c-4a22-b294-c25b42f1e405",
-          ""
-        ],
-        [
-          "silk_edge_clearance|111900000|82600000|53ebb54b-8220-4bd0-bf54-31eabaa906da|f73cd28e-e06b-4e94-ac1e-3082c07652e9",
-          ""
-        ],
-        [
-          "silk_over_copper|113121428|87623509|a5604b39-c8d7-4929-b471-1e9cc251f952|2227e71e-533b-4013-8fc1-656411dfd7e3",
-          ""
-        ],
-        [
-          "silk_overlap|103139091|93000000|84a1c19b-8639-49cf-85f1-2f226d6e69e5|d480a978-6a10-46a5-81f5-ff35994d093e",
-          ""
-        ],
-        [
-          "silk_overlap|109518241|85242309|8456cc15-22c8-45e9-9f0c-eb6d37706aba|a5860c30-a064-4647-b72e-3a507f7a3a90",
           ""
         ]
       ],
@@ -706,6 +674,7 @@
       "netlist": "",
       "plot": "gerber",
       "specctra_dsn": "",
+      "step": "",
       "vrml": ""
     },
     "page_layout_descr_file": ""

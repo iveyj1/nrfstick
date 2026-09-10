@@ -9989,7 +9989,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "SW_Push"
+		(property "Value" "SKRPABE010"
 			(at 266.7 219.71 0)
 			(hide yes)
 			(show_name no)
@@ -10000,7 +10000,7 @@
 				)
 			)
 		)
-		(property "Footprint" "footprint:SW_STU-057A23AC_8127_2.25N"
+		(property "Footprint" "footprint:SW_Push_Alps_SKRPABE010"
 			(at 266.7 219.71 0)
 			(hide yes)
 			(show_name no)
@@ -10011,7 +10011,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://tech.alpsalpine.com/e/products/detail/SKRPABE010/"
 			(at 266.7 219.71 0)
 			(hide yes)
 			(show_name no)
@@ -10022,7 +10022,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "SMD tactile switch, NO, 4.2x3.2mm, 2.5mm high, 1.57N"
 			(at 261.62 219.71 0)
 			(hide yes)
 			(show_name no)
@@ -10033,7 +10033,7 @@
 				)
 			)
 		)
-		(property "MFR" "Mitsumi"
+		(property "MFR" "Alps Alpine"
 			(at 261.62 219.71 0)
 			(hide yes)
 			(show_name no)
@@ -10044,7 +10044,7 @@
 				)
 			)
 		)
-		(property "MFR_PN" "R-668127 "
+		(property "MFR_PN" "SKRPABE010"
 			(at 261.62 219.71 0)
 			(hide yes)
 			(show_name no)
