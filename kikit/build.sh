@@ -8,6 +8,8 @@ CONFIG="$SCRIPT_DIR/nrfstick-panel.json"
 PREVIEW="$SCRIPT_DIR/nrfstick-panel.png"
 NRF_MODEL_SOURCE="$SCRIPT_DIR/../cad/fanstel_bm15c.step"
 NRF_MODEL="$SCRIPT_DIR/cad/fanstel_bm15c.step"
+USB_MODEL_SOURCE="$SCRIPT_DIR/../cad/molex_480372100.step"
+USB_MODEL="$SCRIPT_DIR/cad/molex_480372100.step"
 KICAD_APP="org.kicad.KiCad"
 
 command -v flatpak >/dev/null 2>&1 || {
@@ -26,20 +28,25 @@ flatpak info "$KICAD_APP" >/dev/null 2>&1 || {
     echo "error: nRF STEP model not found: $NRF_MODEL_SOURCE" >&2
     exit 1
 }
+[[ -f "$USB_MODEL_SOURCE" ]] || {
+    echo "error: USB STEP model not found: $USB_MODEL_SOURCE" >&2
+    exit 1
+}
 flatpak run --command=python3 "$KICAD_APP" -m kikit.ui --version >/dev/null 2>&1 || {
     echo "error: KiKit is not installed in the KiCad Flatpak; see README.md" >&2
     exit 1
 }
 
-# The panel's ${KIPRJMOD} is this directory, so copy only the populated model.
+# The panel's ${KIPRJMOD} is this directory, so copy project-local STEP models.
 mkdir -p "$(dirname -- "$NRF_MODEL")"
 cp "$NRF_MODEL_SOURCE" "$NRF_MODEL"
+cp "$USB_MODEL_SOURCE" "$USB_MODEL"
 
 flatpak run --command=python3 "$KICAD_APP" -m kikit.ui panelize \
-    --layout 'grid; cols: 5; rows: 3; hspace: 2mm; vspace: 6mm' \
-    --tabs 'spacing; width: 3mm; spacing: 10mm' \
+    --layout 'grid; cols: 5; rows: 3; hspace: 2mm; vspace: 24mm' \
+    --tabs "plugin; code: $SCRIPT_DIR/no_south_tabs.py.NoSouthTabs; width: 3mm; spacing: 7mm" \
     --cuts 'mousebites; drill: 0.5mm; spacing: 0.8mm' \
-    --framing 'railstb; width: 10mm' \
+    --framing "plugin; code: $SCRIPT_DIR/asymmetric_frame.py.AsymmetricFrame; width: 10mm; hspace: 2mm; vspace: 2mm; arg: 20mm" \
     --dump "$CONFIG" \
     "$SOURCE" "$PANEL"
 

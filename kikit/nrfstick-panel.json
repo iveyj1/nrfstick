@@ -4,7 +4,7 @@
         "rows": 3,
         "cols": 5,
         "hspace": "2mm",
-        "vspace": "6mm",
+        "vspace": "24mm",
         "hevendiff": "0mm",
         "vevendiff": "0mm",
         "rotation": "0deg",
@@ -35,16 +35,16 @@
         "stack": "inherit"
     },
     "tabs": {
-        "type": "spacing",
+        "type": "plugin",
         "hcount": 1,
         "vcount": 1,
         "hwidth": "3mm",
         "vwidth": "3mm",
         "mindistance": "0mm",
-        "spacing": "10mm",
+        "spacing": "7mm",
         "tabfootprints": "kikit:Tab",
         "fillet": "0mm",
-        "code": "none",
+        "code": "/home/user/nrfstick/kikit/no_south_tabs.py.NoSouthTabs",
         "arg": "",
         "cutout": "1mm",
         "patchcorners": true,
@@ -70,7 +70,7 @@
         "arg": ""
     },
     "framing": {
-        "type": "railstb",
+        "type": "plugin",
         "thickness": "0mm",
         "millRadius": "0mm",
         "cuts": "both",
@@ -86,8 +86,8 @@
         "chamferwidth": "0mm",
         "chamferheight": "0mm",
         "fillet": "0mm",
-        "code": "none",
-        "arg": ""
+        "code": "/home/user/nrfstick/kikit/asymmetric_frame.py.AsymmetricFrame",
+        "arg": "20mm"
     },
     "tooling": {
         "type": "none",

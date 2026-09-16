@@ -8666,7 +8666,7 @@
 				)
 			)
 		)
-		(property "Footprint" "footprint:connector-USB-A-male-smd-Molex-480372100"
+		(property "Footprint" "footprint:USB_A_AdamTech_USB-AP-S-RA-SMT"
 			(at 152.4 73.914 0)
 			(hide yes)
 			(show_name no)
@@ -8677,7 +8677,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "data/usb-ap-s-ra-smt-data-sheet.pdf"
 			(at 153.67 91.44 0)
 			(hide yes)
 			(show_name no)
@@ -8699,7 +8699,7 @@
 				)
 			)
 		)
-		(property "MFR" "Molex"
+		(property "MFR" "Adam Tech"
 			(at 149.86 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -8710,7 +8710,7 @@
 				)
 			)
 		)
-		(property "MFR_PN" "480372100"
+		(property "MFR_PN" "USB-AP-S-RA-SMT"
 			(at 149.86 90.17 0)
 			(hide yes)
 			(show_name no)
