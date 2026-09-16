@@ -1,3 +1,4 @@
 .history/
 *backup*/
 *.lck
+__pycache__
