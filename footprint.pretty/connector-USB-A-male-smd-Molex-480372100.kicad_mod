@@ -1,0 +1,215 @@
+(footprint "connector-USB-A-male-smd-Molex-480372100"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "Molex 48037-2100 USB-A male; 12.00 x 18.80mm shell outline on Dwgs.User; shell-only STEP model. Existing project land pattern retained. Drawing SD-48037-003 revision C.")
+	(property "Reference" "REF**"
+		(at 0 -5 0)
+		(layer "F.SilkS")
+		(uuid "38978334-7bcf-4822-bb74-03d9cd9445d2")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.125)
+			)
+		)
+	)
+	(property "Value" "480372100"
+		(at 0 19.5 0)
+		(layer "F.Fab")
+		(uuid "46db69a6-10ca-4166-a469-370af6d0fe3c")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "be3c90eb-81f4-4cac-9a19-2d7a8f893672")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" "USB Type A connector"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "f67ac909-e5b9-425b-84c8-b285b381eeb8")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "MFR" "Molex"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "a138076e-f801-4d51-8dc1-42331428f5de")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "MFR_PN" "480372100"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "eb777c1f-c878-4e91-84ce-0d99318f09f8")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property ki_fp_filters "USB*")
+	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -6.9 2.75)
+		(end 6.9 2.75)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "3c2cb3e7-6ce1-403f-9a21-f4358454697c")
+	)
+	(fp_rect
+		(start -6 -1)
+		(end 6 17.8)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "Dwgs.User")
+		(uuid "57455a69-fe42-4516-b084-a077331f43c8")
+	)
+	(fp_line
+		(start -4.6 -3.85)
+		(end 4.6 -3.85)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "22d9573b-a0cf-44b8-aef0-cdad516b4c67")
+	)
+	(fp_line
+		(start -4.6 -1.35)
+		(end -4.6 -3.85)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "d3fd9d69-e5d8-458e-a8e8-5dc11c144045")
+	)
+	(fp_line
+		(start 4.6 -3.85)
+		(end 4.6 -1.35)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "dc7ca22d-a760-4106-b048-12f4d6689b91")
+	)
+	(fp_line
+		(start 4.6 -1.35)
+		(end -4.6 -1.35)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "9219f60b-4622-41c0-836d-2375119c35ec")
+	)
+	(pad "" np_thru_hole roundrect
+		(at -2.25 0)
+		(size 1.1508 1.27)
+		(drill 1.1)
+		(layers)
+		(roundrect_rratio 0.15)
+		(uuid "8f8a4dbf-b336-4d1b-a478-9feadb185622")
+	)
+	(pad "" np_thru_hole roundrect
+		(at 2.25 0)
+		(size 1.1508 1.27)
+		(drill 1.1)
+		(layers)
+		(roundrect_rratio 0.15)
+		(uuid "8d8899b5-a7a5-427c-8f5a-42c39b35cee7")
+	)
+	(pad "1" smd rect
+		(at 3.75 -2.6)
+		(size 1.2 2)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(thermal_bridge_angle 45)
+		(uuid "83525dd7-4518-4824-be60-718e73967e44")
+	)
+	(pad "2" smd rect
+		(at 1.25 -2.6)
+		(size 1.2 2)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(thermal_bridge_angle 45)
+		(uuid "ce3bdc2f-e2db-4af6-bd1a-520b79c899ea")
+	)
+	(pad "3" smd rect
+		(at -1.25 -2.6)
+		(size 1.2 2)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(thermal_bridge_angle 45)
+		(uuid "1e2d06b5-fc03-44fa-8e88-6b06418885d8")
+	)
+	(pad "4" smd rect
+		(at -3.75 -2.6)
+		(size 1.2 2)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(thermal_bridge_angle 45)
+		(uuid "23cb28ce-11d3-4afd-a1bd-3cea1e6ceab9")
+	)
+	(pad "SH" thru_hole roundrect
+		(at -5.85 0)
+		(size 2 3.5)
+		(drill oval 0.7 2.3)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(roundrect_rratio 0.15)
+		(uuid "c1a92bee-68b3-480b-9767-4950f5b55cf4")
+	)
+	(pad "SH" thru_hole roundrect
+		(at 5.85 0)
+		(size 2 3.5)
+		(drill oval 0.7 2.3)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(roundrect_rratio 0.15)
+		(uuid "b49c7023-c5e8-4d53-a55e-da9bd08c7feb")
+	)
+	(embedded_fonts no)
+	(model "${KIPRJMOD}/cad/molex_480372100.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

@@ -1,5 +1,9 @@
 #!/usr/bin/env bash 
 set -euo pipefail
 
-source $HOME/cadquery/.venv_cadquery/bin/activate
-python3 $1
+venv="${CADQUERY_VENV:-$HOME/cadquery/.venv_cadquery}"
+if [[ ! -f "$venv/bin/activate" && -z "${CADQUERY_VENV:-}" ]]; then
+    venv="$HOME/cad/cadquery/.venv_cadquery"
+fi
+source "$venv/bin/activate"
+"$venv/bin/python3" "$@"

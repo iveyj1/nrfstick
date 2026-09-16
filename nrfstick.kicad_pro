@@ -76,16 +76,7 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [
-        [
-          "lib_footprint_issues|106800000|96662500|2df1415d-5608-4b2c-b04d-595d2021cdfd|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_edge_clearance|100000000|99950000|ee59571b-f802-4771-bc6b-e5e89db805fd|c454a2c5-3534-48ed-972a-f9e25f057d5f",
-          ""
-        ]
-      ],
+      "drc_exclusions": [],
       "meta": {
         "version": 2
       },
@@ -131,7 +122,7 @@
         "shorting_items": "error",
         "silk_edge_clearance": "warning",
         "silk_over_copper": "warning",
-        "silk_overlap": "warning",
+        "silk_overlap": "ignore",
         "skew_out_of_range": "error",
         "solder_mask_bridge": "error",
         "starved_thermal": "error",
@@ -171,7 +162,7 @@
         "min_track_width": 0.1,
         "min_via_annular_width": 0.05,
         "min_via_diameter": 0.25,
-        "solder_mask_to_copper_clearance": 0.0,
+        "solder_mask_to_copper_clearance": 0.005,
         "use_height_for_length_calcs": true
       },
       "teardrop_options": [
@@ -312,7 +303,6 @@
           "locked_item_shadows",
           "conflict_shadows",
           "shapes",
-          "board_outline_area",
           "ly_points"
         ]
       },
@@ -349,7 +339,6 @@
           "locked_item_shadows",
           "conflict_shadows",
           "shapes",
-          "board_outline_area",
           "ly_points"
         ]
       },
@@ -387,7 +376,6 @@
           "locked_item_shadows",
           "conflict_shadows",
           "shapes",
-          "board_outline_area",
           "ly_points"
         ]
       }
@@ -821,7 +809,7 @@
         "uuid": "39093050-dc9c-422e-b941-c27c2ad4a228"
       }
     ],
-    "used_designators": "",
+    "used_designators": "SW5,#PWR7-8,#PWR38,#PWR84,J3-6",
     "variants": []
   },
   "sheets": [

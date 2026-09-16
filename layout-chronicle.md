@@ -248,3 +248,67 @@ item must be completed or explicitly dismissed with a reason before release.
 - This was a selective SW4 substitution, not a full schematic-to-PCB update;
   the separately introduced RTS/CTS schematic changes still need their own
   PCB synchronization/review. No unrelated schematic changes were propagated.
+
+## Session 8 — 2 mm contact-pad connector families
+
+- Added nine footprints to the project `footprint` library using KiCad's native
+  Python API: `Conn_Pads_1x01` through `Conn_Pads_1x06`, and `Conn_Pads_2x01`
+  through `Conn_Pads_2x03`, all with suffix `_P2.00mm_D1.00mm`.
+- Every pad is a 1 mm circular SMD contact on F.Cu/F.Mask, with no hole or
+  solder-paste opening. Centers are 2 mm apart in both axes. Origins are at
+  the array center; each footprint has a courtyard and separate pin-1 silk mark.
+- Single rows number left-to-right. Two-row arrays number by column, with
+  odd pins on the upper row and even pins on the lower row (front view).
+- Added `tools/generate_contact_pad_footprints.py`; its `--check` mode reloads
+  all nine footprints and verifies counts, numbering, coordinates, diameter,
+  circular shape, zero drill, and copper/mask-only layers.
+- Left the user's schematic additions, footprint assignments and PCB untouched.
+
+## Session 9 — Molex 48037-2100 shell outline and 3D model
+
+- Used `data/480372100_sd.pdf` (SD-48037-003 rev C) to add the full
+  12.00 × 18.80 mm shell projection on J1's F.Fab layer. Relative to the
+  mounting-hole centerline, the shell extends from Y=−1.00 to +17.80 mm.
+- User clarified that a shell-only 3D model is sufficient. Added the standalone
+  CadQuery script `cad/molex_480372100.py`, its STEP export, and dimension/
+  assumption documentation in `cad/molex_480372100.md`. Includes the hollow
+  metal shell and mounting legs; omits housing and contacts. Undimensioned
+  details are approximate, not vendor MCAD.
+- Attached the project-relative STEP to live J1 and exported the corresponding
+  `connector-USB-A-male-smd-Molex-480372100.kicad_mod` into `footprint.pretty`;
+  that library file was absent, so the current embedded footprint was the source.
+  Preserved all eight pads/holes, placement, nets, courtyard and existing guide.
+- IPC round-tripping omitted J1's symbol-unit metadata; restored it through
+  the live PCB scripting console using the native KiCad API. Kept concurrent
+  user layout edits rather than reloading an older board snapshot.
+- CadQuery checks passed: one valid connected solid, STEP reload valid,
+  envelope 12.00 × 18.80 × 4.80 mm including legs. KiCad STEP export confirmed
+  model resolution, correct registration/outward direction and unit scale.
+- Updated `cad/cq` to also find the relocated environment under
+  `$HOME/cad/cadquery`, and invoke that environment's interpreter explicitly.
+  No schematic or routing changes were made for this addition.
+
+## Session 10 — Shell outline display layer
+
+- Moved the Molex shell outline from F.Fab to Dwgs.User in the project library,
+  as requested to avoid the cluttered fabrication layer. Other graphics, pads
+  and the STEP assignment are unchanged.
+- The PCB editor was closed and the saved board no longer contained J1 when
+  applying this change; left that board state unchanged. Open footprint-editor
+  copies need reloading to display the updated library layer.
+
+## Session 11 — BM15C 3D model
+
+- Built `cad/fanstel_bm15c.py` and its colored STEP assembly from page 7 of
+  `data/BM15C+Product+Specifications.pdf`: 10 × 15.8 × 0.6 mm substrate,
+  10.3 mm long RF shield with 2.0 mm overall module height, and the dimensioned
+  5.5 × 2 × 1 mm chip antenna. Used the explicit BM15C mechanical drawing rather
+  than the draft's inconsistent overview table.
+- Documented nominal dimensions, tolerances, assumed shield width/gauge and
+  omitted internal detail in `cad/fanstel_bm15c.md`.
+- Attached `${KIPRJMOD}/cad/fanstel_bm15c.step` to the project library and live
+  U5 through native KiCad APIs. Saved-board before/after diff contains only
+  the model assignment; pads, placement, symbol-unit metadata and routing intact.
+- CadQuery solid/envelope and STEP reload checks passed. KiCad STEP export
+  confirmed three solids, 10 × 15.8 × 2 mm envelope, model resolution and
+  antenna direction. The shield edge aligns with the footprint's Y=−2.4 guide.
